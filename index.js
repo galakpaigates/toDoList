@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchDiv = document.getElementById('searchDiv');
     const searchTodoListBtn = document.getElementById('searchTodoListBtn');
 
-    var count = 0;
+    var todoId = 0;
 
     onlyForm.addEventListener('submit', (event) => {
-        if (todoInput.value.length > 3) {
+        if (todoInput.value.length >= 3) {
                 todosList.insertAdjacentHTML("beforeend", 
                 `<tr> 
-                    <td> ${count+=1}. </td>
+                    <td> ${todoId+=1}. </td>
                     
                     <td class="newTodoValue">${todoInput.value}</td>
                     
@@ -27,11 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 todoInput.value = "";
                 event.preventDefault()
-                
-                searchDiv.style.display = "list-item";
 
-                if (todosList.textContent.length <= 500) {
-                    searchDiv.style.display = "none";
+                if (todoId >= 10) {
+                    searchDiv.style.display = "list-item"
                 }
         }
         else if (todoInput.value.length < 22) {
@@ -50,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 userChoice.parentElement.parentElement.remove()
             }, 400)
 
-            if (todosList.textContent.length <= 500) {
-                searchDiv.style.display = "none";
+            if (todoId >= 10) {
+                searchDiv.style.display = "list-item"
             }
         }
 

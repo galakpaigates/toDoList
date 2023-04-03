@@ -103,4 +103,5 @@ button {
 #searchDiv {
     display: none;
     list-style-type: none;
+    margin-top: 21px;
 }
