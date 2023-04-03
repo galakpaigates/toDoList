@@ -7,3 +7,6 @@ It helps you keep track of things you have to do for the day and remove things, 
 Check it out by Clicking the Link in the About Section.
 
 ### Thanks!
+
+#### Contributors:
+  1. Jee-do G. Arkoi (Only)
