@@ -97,7 +97,6 @@ button {
 
 .newTodoValue {
     font-weight: bold;
-    text-transform: capitalize;
 }
 
 #searchDiv {

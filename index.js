@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 todoInput.value = "";
                 event.preventDefault()
 
-                if (todoId >= 10) {
+                if (todoId >= 7) {
                     searchDiv.style.display = "list-item"
                 }
         }
@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 userChoice.parentElement.parentElement.remove()
             }, 400)
 
-            if (todoId >= 10) {
-                searchDiv.style.display = "list-item"
+            if (todosList.innerText.length >= 100) {
+                searchDiv.style.display = "list-item";
             }
         }
 
@@ -69,14 +69,25 @@ document.addEventListener('DOMContentLoaded', () => {
             else {return false}
         }
     })
+
+    searchInput.addEventListener('keyup', (event) => {
+        const searchWord = searchInput.value.toLowerCase();
+        var status;
+
+        for (let i = 0; i < todosList.children.length; i++) {
+            const todo = todosList.children[i].firstElementChild;
+
+            if (todo.innerText.includes(searchWord)) {
+                list()
+
+                function list() {
+                todo.parentElement.style.display = "flex";
+                status = true;
+            }}
+            
+            else {
+                todo.parentElement.style.display = "none";
+            }
+        }
+    })
 })
-
-```
-    search() {
-    var name = document. getElementById("searchForm"). elements["searchItem"]. value;
-    var pattern = name. toLowerCase();
-    var targetId = "";
-    var divs = document. getElementsByClassName("col-md-2");
-    for (var i = 0; i < divs. length; i++) {
-
-```
