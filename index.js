@@ -70,22 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    searchInput.addEventListener('keyup', (event) => {
-        const searchWord = searchInput.value.toLowerCase();
-
+    searchInput.addEventListener("keyup", function (event) {
         for (let i = 0; i < todosList.children.length; i++) {
-            const todo = todosList.children[i].firstElementChild;
-
-            if (todo.innerText.toLowerCase().includes(searchWord)) {
-                list()
-
-                function list() {
-                todo.parentElement.style.display = "flex";
-            }}
-            
-            else {
-                todo.parentElement.style.display = "none";
+            const listItem = todosList.children[i].firstElementChild;
+            const listItemText = listItem.innerText.toLowerCase();
+    
+            if (listItemText.includes(searchInput.value.toLowerCase())) {
+                listItem.parentElement.style.display = "list-item";
+                listItem.parentElement.style.listStyleType = "none";
+            } else {
+                listItem.parentElement.style.display = "none";
             }
         }
-    })
+    });
 })
