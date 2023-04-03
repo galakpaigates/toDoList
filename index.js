@@ -72,17 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('keyup', (event) => {
         const searchWord = searchInput.value.toLowerCase();
-        var status;
 
         for (let i = 0; i < todosList.children.length; i++) {
             const todo = todosList.children[i].firstElementChild;
 
-            if (todo.innerText.includes(searchWord)) {
+            if (todo.innerText.toLowerCase().includes(searchWord)) {
                 list()
 
                 function list() {
                 todo.parentElement.style.display = "flex";
-                status = true;
             }}
             
             else {
