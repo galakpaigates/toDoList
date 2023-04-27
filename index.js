@@ -60,13 +60,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         else if (userChoice.className === "editTodo") {
-            var editedTodo = prompt("What would you like to Change this To-Do to? ")
-            console.log(editedTodo.length)
+            const editInput = document.createElement('input'); 
+            editInput.type = "text"; 
+            editInput.className = "editInput";
+            editInput.value = userChoice.parentElement.parentElement.querySelector('.newTodoValue').textContent;
 
-            if (editedTodo.length > 3) {
-                userChoice.parentElement.parentElement.querySelector('.newTodoValue').innerHTML = `${editedTodo}`
-            }
-            else {return false}
+            userChoice.parentElement.parentElement.querySelector('.newTodoValue').replaceWith(editInput);
+
+            editInput.addEventListener('keyup', (event) => {
+                if (event.keyCode === 13) {
+                    if (editInput.value.length > 2) {
+                        const newTodoValue = document.createElement('td'); 
+                        newTodoValue.innerText = editInput.value; 
+                        newTodoValue.className = "newTodoValue";
+                        userChoice.parentElement.parentElement.querySelector('.editInput').replaceWith(newTodoValue);
+                    }
+                    else {return false}
+                }
+            })
         }
     })
 
